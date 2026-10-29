@@ -1,0 +1,103 @@
+{
+  "upstream_commit": "e1a8c7f1730149a81d5aa5863b963487a2e3955e",
+  "origin": "https://github.com/jtianling/hyperframes.git",
+  "recorded_at_utc": "2026-10-29T13:22:31.439988+00:00",
+  "skill_metadata": {
+    "status": "PASS",
+    "count": 7
+  },
+  "static_checks": {
+    "local_links": "PASS",
+    "platform_copy_sync": "PASS",
+    "diff_check": "PASS"
+  },
+  "independent_review": "PASS",
+  "renderer_e2e": {
+    "status": "NOT_RUN",
+    "scope": "No rendering engine installation, sandbox provisioning or paid media calls."
+  },
+  "publication": {
+    "committed": false,
+    "pushed": false,
+    "online_agents_changed": false
+  },
+  "changed_files_sha256": {
+    "AGENTS.md": "f042fac2d2fa4d03c98bbe7f19101c4301b830e72d39f1aba9ffd1e7d797362f",
+    "CLAUDE.md": "ed0d88920bca6dafa1169ca1c1d6d71f300590caeee34d6c89d5059e9014760d",
+    "README.md": "0f399c30afe62c8e5261e4937365728e57d25f86a3ad554da39cf027cea47395",
+    "docs/guides/skills.mdx": "3aa1a2d2c8ad6ebdbb10a8f24cd3d6aa55549aac0a9c49b3802e6873e070f0eb",
+    "docs/monkeys-platform.md": "7faeeb75bf425033a8bd4a7ab0900a4aa6b971b18b3cdf2f6aa31ec55e7d975f",
+    "docs/prompting/overview.mdx": "ab2aad2457399d2408452a14882f198f31a407c23d2e0fb72ff8cd9b809ba384",
+    "docs/quickstart.mdx": "33ea195b80a4d0d0c08fb442e39205e3d636caffc32fc4643e4599bb0e330fe5",
+    "package.json": "c64fc726130a089050f2828eb5e2a9611e337fb497e6c2486506aefb324e2f57",
+    "packages/cli/scripts/gen-skills-manifest.ts": "6eb34842b0f30879ec5fdf714eec00897f0edc2122503db20a0668b3a89421a4",
+    "packages/cli/src/templates/_shared/AGENTS.md": "7b86489060e551fefe9c5cb2c8ff9fa0ed675219416165cc42b6d79933dbab43",
+    "packages/cli/src/templates/_shared/CLAUDE.md": "7b86489060e551fefe9c5cb2c8ff9fa0ed675219416165cc42b6d79933dbab43",
+    "scripts/sync-monkeys-platform.mjs": "2f523cae39a084a45bfbcd462da4f56e8457d6e194e553fb7787bb33a297f062",
+    "skills-manifest.json": "bc798bdb9f11babced2a9169a553d6a3d59e2ec9adf89549132b53c9b85356e4",
+    "skills/figma/SKILL.md": "20148114480a119e417375f75c6dc472660948e7b9f1f029c61c857369fee31b",
+    "skills/figma/references/platform.md": "ec60bd5b38e791662e97c21be9a00b1248959e78d4e7002ba1ff4bf41985cc7c",
+    "skills/figma/scripts/platform-cli.mjs": "c76bd4e53374da75fa4e6f564f84a0c324644112a07ec2896b25521986a26849",
+    "skills/hyperframes-cli/SKILL.md": "1fe1ab3b9d7ce0c87ee02a324625ae6602148d609e80ac2af439895042594ea9",
+    "skills/hyperframes-cli/references/doctor-browser.md": "62728a88c52ca8d5ffb217170dab53525a65fa65f59c1cbcbb60aa703876daf4",
+    "skills/hyperframes-cli/references/feedback.md": "f4cacf3f6ff974506f0d83db3854fc10ad7906ba1598f54da7b8271427079d83",
+    "skills/hyperframes-cli/references/init-and-scaffold.md": "9b42aa06ca4a4264fbfa110382025dfe9916a31f9e2a6b2b0a89876f25925019",
+    "skills/hyperframes-cli/references/platform.md": "ec60bd5b38e791662e97c21be9a00b1248959e78d4e7002ba1ff4bf41985cc7c",
+    "skills/hyperframes-cli/references/preview-render.md": "20a5cbba94da113d001c0d15d8780a63d84f3ec0cdf3f7c7670a9ee078acac0f",
+    "skills/hyperframes-cli/scripts/platform-cli.mjs": "c76bd4e53374da75fa4e6f564f84a0c324644112a07ec2896b25521986a26849",
+    "skills/hyperframes-registry/SKILL.md": "dcf13f9e5eb2dd66f5df1d01ac231d5b5ae374ef1941140b80ed022b359ed375",
+    "skills/hyperframes-registry/references/platform.md": "ec60bd5b38e791662e97c21be9a00b1248959e78d4e7002ba1ff4bf41985cc7c",
+    "skills/hyperframes-registry/scripts/platform-cli.mjs": "c76bd4e53374da75fa4e6f564f84a0c324644112a07ec2896b25521986a26849",
+    "skills/hyperframes/SKILL.md": "3d35227e338b686d8139120d621341928a0c74aac8b82c709bed160cdc7c1b76",
+    "skills/hyperframes/references/captions.md": "e9ce78c1e7669b93fd2b324452e72de0465b22a1281722cf3900c3ca6b54d1a1",
+    "skills/hyperframes/references/platform.md": "ec60bd5b38e791662e97c21be9a00b1248959e78d4e7002ba1ff4bf41985cc7c",
+    "skills/hyperframes/references/plugin-installation.md": "44fa83ccb978282648d56f9c5167dc7c4751c9c3d4fc428477586d61446bb2a2",
+    "skills/hyperframes/references/skill-lifecycle.md": "44fa83ccb978282648d56f9c5167dc7c4751c9c3d4fc428477586d61446bb2a2",
+    "skills/hyperframes/references/sound.md": "992d660d2731313d72c46ce5694a92c3fa65bf8abd2ddaa20a4a86d5b8fa20a8",
+    "skills/hyperframes/references/storyboard.md": "bba0e2cb21110054d5d311e9f0b458f8fc586de7870aaaa91df59c76833588b9",
+    "skills/hyperframes/scripts/platform-cli.mjs": "c76bd4e53374da75fa4e6f564f84a0c324644112a07ec2896b25521986a26849",
+    "skills/media-use/SKILL.md": "cfa67a20ca5aaa61af7c6e21552099ae9f430167f142f98cea97c13dcf3b8d8e",
+    "skills/media-use/references/audio.md": "053c9ec7d76352e0a1cabf236b80d0c7adcf4136e6df480113e354d650b57ca4",
+    "skills/media-use/references/media-treatments.md": "32b9b3bb6fb3838829ff08dc5650b2eb065086b4bd5db9c431e9629a38e93385",
+    "skills/media-use/references/platform.md": "ec60bd5b38e791662e97c21be9a00b1248959e78d4e7002ba1ff4bf41985cc7c",
+    "skills/media-use/references/resolve.md": "124c9cf2bda63f6399ede8ca9200c60afaf47dc3e2a01fd895c3a7b19bb6aab5",
+    "skills/media-use/references/setup-providers.md": "3c47117f01c303d8278cf9404915b94a4377a07c422c1cb7679a9d2b06ad24e7",
+    "skills/media-use/scripts/platform-cli.mjs": "c76bd4e53374da75fa4e6f564f84a0c324644112a07ec2896b25521986a26849",
+    "skills/remotion-to-hyperframes/SKILL.md": "e9b9c45c0c97dd2108a988e56950d4b967fa6b41d1299e0c911c09fc7090e166",
+    "skills/remotion-to-hyperframes/references/platform.md": "ec60bd5b38e791662e97c21be9a00b1248959e78d4e7002ba1ff4bf41985cc7c",
+    "skills/remotion-to-hyperframes/scripts/platform-cli.mjs": "c76bd4e53374da75fa4e6f564f84a0c324644112a07ec2896b25521986a26849",
+    "skills/slideshow/SKILL.md": "ebb0cd09f9cfb77d1e8dce9a4de91531780cf0c4a6c7931a9b6fc92d257df873",
+    "skills/slideshow/references/platform.md": "ec60bd5b38e791662e97c21be9a00b1248959e78d4e7002ba1ff4bf41985cc7c",
+    "skills/slideshow/scripts/platform-cli.mjs": "c76bd4e53374da75fa4e6f564f84a0c324644112a07ec2896b25521986a26849",
+    "tests/monkeys-platform-cli.test.mjs": "fa00c0ffd7a2198ec8c874998cdbd8f6a329642f5fec384ddfb6a9fa18f659bc"
+  },
+  "wrapper_subprocess_tests": {
+    "passed": 8,
+    "failed": 0,
+    "real_render_engine": false
+  },
+  "commit_preflight": {
+    "format": {
+      "status": "PASS",
+      "tool": "oxfmt",
+      "version": "0.43.0"
+    },
+    "lint": {
+      "status": "PASS",
+      "tool": "oxlint",
+      "version": "1.64.0",
+      "warnings": 0,
+      "errors": 0
+    },
+    "wrapper_subprocess_tests": {
+      "passed": 8,
+      "failed": 0
+    },
+    "changes_after_review": "Formatting and moving test cleanup into a test hook.",
+    "resolved_findings": [
+      "Formatter discrepancies.",
+      "Installed oxlint 1.57.0 could not parse excludeFiles; used repository lockfile version 1.64.0.",
+      "no-unsafe-finally in test cleanup."
+    ]
+  }
+}

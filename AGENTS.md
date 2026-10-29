@@ -1,5 +1,7 @@
 # Hyperframes
 
+本 fork 的 monkeys 平台适配见 [接入说明](docs/monkeys-platform.md).  平台任务使用本地 CLI wrapper 和托管媒体工具, 不安装原版 skill, 不自动升级或调用供应商生成 API.  原版源码与贡献者说明继续保留, 不代表平台环境已安装全部工具.
+
 Open-source video rendering framework: write HTML, render video.
 
 ## Skills
@@ -17,7 +19,7 @@ Make any video by asking for it; the `/hyperframes` skill carries the contract a
 - `/hyperframes` — read first for any request to make, edit, animate or render a video, motion graphic, captions or overlays with HyperFrames (HTML rendered to video). Holds the render contract and the work loop, and points to the references for format, motion, look, captions, whole films and storyboards.
 - `/hyperframes-cli` — the HyperFrames CLI by job: scaffold, check, look at frames, edit the timeline, preview, render locally or in the cloud, publish, project history; plus reading its JSON and recovering from build or render failures.
 - `/hyperframes-registry` — about 450 ready-made blocks and components installed as editable source. Use before hand-building any named visual; also for `hyperframes add` and `catalog`.
-- `/media-use` — get or make any media for a video (music, sound effects, images, voiceover, avatar and generated video, transcripts, cutouts, colour grades) with HeyGen or free local tools, and mix placed audio.
+- `/media-use` — get or make any media for a video (music, sound effects, images, voiceover, avatar and generated video, transcripts, cutouts, colour grades) with monkeys managed media tools and local mixing.
 - `/figma` — bring Figma into a video: rendered assets, brand tokens, components, storyboard frames as reconstructed motion.
 - `/slideshow` — a presentation, pitch deck or interactive deck. Output is a navigable deck, not a rendered MP4.
 - `/remotion-to-hyperframes` — bring existing video code or footage into HyperFrames (Remotion first; also Motion Canvas, Lottie, Three.js, canvas, or renders from other tools) and verify it frame by frame against the original.

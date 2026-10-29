@@ -4,6 +4,8 @@ sidebarTitle: "Agent skills"
 description: "Teach a coding agent how to create valid HyperFrames projects."
 keywords: ['npx skills', 'npx skills add', 'skills add', 'install skills', 'update skills']
 ---
+本 fork 在 monkeys 运行时, 优先遵循已加载 skill 的 references/platform.md 并使用其本地 platform-cli.mjs.  媒体生成使用平台托管工具, 不安装原版 skill, 不自动升级, 发送反馈或调用供应商生成 API.  下列原版独立安装和桌面工作流不作为 monkeys 的执行入口.
+
 
 import { DocsVideo } from "/snippets/docs-video.jsx";
 
@@ -121,7 +123,7 @@ Make any video by asking for it; the `/hyperframes` skill carries the contract a
 | `/hyperframes` | Read first for any request to make, edit, animate or render a video, motion graphic, captions or overlays. Holds the render contract and the work loop, and points to the references for format, motion, look, captions, whole films and storyboards. |
 | `/hyperframes-cli` | The CLI by job: scaffold, check, look at frames, edit the timeline, preview, render locally or in the cloud, publish, project history. |
 | `/hyperframes-registry` | About 450 ready-made blocks and components installed as editable source: transitions, overlays, titles, kinetic type, captions, charts, maps, 3D, camera moves. |
-| `/media-use` | Music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks, with HeyGen or free local tools; mixes placed audio. |
+| `/media-use` | Music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks, with monkeys managed media tools and local mixing. |
 | `/figma` | A Figma file or frame: rendered assets, brand tokens, components, and storyboard frames as reconstructed motion. |
 | `/slideshow` | A presentation, pitch deck or interactive deck. Output is a navigable deck, not a rendered MP4. |
 | `/remotion-to-hyperframes` | Bringing existing video code or footage into HyperFrames (Remotion first; also Motion Canvas, Lottie, Three.js, canvas, other tools' renders), verified frame by frame. |

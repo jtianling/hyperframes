@@ -3,7 +3,7 @@ name: slideshow
 description: Build a HyperFrames slideshow to present live - slides, fragment reveals, branching hotspots and presenter mode with speaker notes, served by `hyperframes present` - or turn an existing page into one. Use when the person wants a deck or presentation rather than a rendered video.
 ---
 
-**Plugin installs:** Before setup or freshness commands, follow [plugin execution rules](../hyperframes/references/plugin-installation.md) when this skill is inside a HyperFrames plugin.
+先读 [monkeys 平台接入](references/platform.md), 使用本 skill 的 platform-cli.mjs 和平台媒体工具.  本文优先于原版安装, 云服务和交付流程.
 
 # HyperFrames slideshow
 

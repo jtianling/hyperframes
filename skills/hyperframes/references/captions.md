@@ -1,13 +1,10 @@
 # Captions
 
-## Words and timings
+## 时间戳与来源
 
-- `npx hyperframes transcribe <file> --json` and a HeyGen voiceover (`/media-use`) give every word's start and end. Work from those as `[{ "id": "w0", "text": "Hello", "start": 0.0, "end": 0.5 }, …]`.
-- `npx hyperframes transcribe` defaults to the `small.en` whisper model, which **translates** non-English speech into English. Pass the model: `npx hyperframes transcribe <file> --model small.en` for English, `--model small --language <code>` otherwise, `--model medium.en` for speech over music. It writes `assets/transcript.json` (its JSON names the path) and overwrites it on the next run; `--to srt` or `--to vtt` writes a sidecar.
-- For Chinese, Japanese and other unspaced scripts, local transcription returns a whole sentence as one "word", sometimes in the other script (Traditional for Simplified speech). Split each segment's text into short phrases and spread its time across them by character count; check the characters against what is said.
-- Whisper invents "Thank you." over silence and repeats lines over a silent tail: drop words that start inside a final silence (`silencedetect=noise=-35dB:d=0.6`; real speech sits around −16 to −26 dB).
-- Never put two words in one timed entry, and match transcript words to caption words by position, not text, or a repeated word takes the wrong time.
-- Read the transcript before using it. More than 20% `♪` or `�` tokens, or nonsense words, means it failed: retry with a larger model, or take lyrics from the person. Drop non-word tokens before building groups.
+优先用用户 SRT/JSON 或真实 ASR 转录.  平台 TTS 不保证词级时间戳, 只有分段音频和实测时长时明确按段对齐, 不按字符数伪造逐词精度.  没有真实词级时间时不用逐词高亮.
+
+自动识别必须有平台实际 ASR 工具或预装引擎与缓存模型.  不运行会自动安装模型的 transcribe, 不要求 HeyGen, 不猜工具名或接口.  转录应与源音频人工抽查, 保留正确语言与文字, 不把生成文案当识别结果.
 
 ## Structure
 

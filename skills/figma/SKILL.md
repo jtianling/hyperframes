@@ -3,29 +3,17 @@ name: figma
 description: Bring Figma into a HyperFrames video - rendered assets, brand tokens, components, storyboard frames as reconstructed motion (frames read as states, not slides), shaders and connector-assisted motion. Use when the person pastes a figma.com link or asks to use a Figma design, frame, logo or brand.
 ---
 
-**Plugin installs:** Before setup or freshness commands, follow [plugin execution rules](../hyperframes/references/plugin-installation.md) when this skill is inside a HyperFrames plugin.
+先读 [monkeys 平台接入](references/platform.md), 使用本 skill 的 platform-cli.mjs 和平台媒体工具.  本文优先于原版安装, 云服务和交付流程.
 
 # Figma → HyperFrames
 
-Every import happens at build time and freezes a local file with its source recorded under `.media/`, so renders never call Figma and re-running a command re-imports only what changed. Assets, tokens and components go over REST with a token; motion and shader data need a Figma connector, or a native export from the person.
+素材在制作阶段接入为本地文件, 渲染阶段不请求 Figma.  优先使用平台实际提供且已授权的 Figma connector, 以当轮 schema 为准.  没有 connector 时使用用户导出的 SVG, PNG 或设计资料, 明确无法读取仅有链接的私有设计.
 
-## Access
+## 接入方式
 
-`FIGMA_TOKEN` in the shell or the project `.env`. Check it exists before the first command; if not, tell the person how to make one and stop: figma.com → Settings → Security → Personal access tokens, read-only **File content** and **File metadata**, plus **Library content** for `tokens` on non-Enterprise plans. They set it themselves; never ask them to paste it into the chat.
+不读取 FIGMA_TOKEN 或 .env, 不要求终端用户创建 token, 不运行 hyperframes figma 的 REST 直连命令.  从 connector 的真实结果接入本地文件, 或使用用户导出文件, 保留来源和设计尺寸.  不因环境缺 connector 就重画品牌标志后冒充原始设计.
 
-| Error | Meaning |
-| --- | --- |
-| `BAD_TOKEN` (401) | Expired or revoked: make a new one |
-| `FORBIDDEN` (403) | The message names the missing scope, or the file isn't visible to the account |
-| `REQUIRES_ENTERPRISE` (403, variables) | Not a failure: the published-styles fallback already ran |
-| `RATE_LIMITED` (429) | Already retried with backoff; wait a minute or import fewer nodes per call |
-
-## Commands
-
-- A layer, logo or image: `npx hyperframes figma asset '<url or fileKey:nodeId>' [more refs] --format svg|png --scale 2 --description "<what it is>" [--entity "<brand mark>"]`. SVG for vectors and logos, PNG at 2x for raster. Several nodes of one file in one call render in a single request; `--entity` lets `/media-use` find a brand mark later.
-- Brand colours and type: `npx hyperframes figma tokens <fileKey>`. Run it before `component` and paste the printed entries into `data-composition-variables`. Without Enterprise it falls back to published styles. A connector can supply variables there instead: cache its raw response in `.media/figma-cache/` and write the bindings to `.media/figma-bindings.jsonl` (`{kind:"binding", figmaId, sourceFileKey, compositionVariableId:"figma:<name>", version}`).
-- A frame as editable HTML at exact geometry: `npx hyperframes figma component '<url or fileKey:nodeId>'`, packaged under `compositions/components/<name>/`. A fill bound to an imported token comes out as `var(--slug, #literal)`, so one variable re-brands every import; an unknown token stays a literal marked `data-figma-unresolved`: import that library's tokens and re-import. Ask once which file a library is; never match by hex.
-- Check hero components against Figma's pixels (`figma asset <same node> --format png`). Text drift is the usual cause; report drift you can't fix instead of hand-tweaking the import.
+颜色, 字体和组件只有取得真实设计信息后才应用, 动效可按用户要求重建, 区分设计事实与自行创作.  下列 motion 和 shader 方法仅在实际 connector 提供对应数据时使用, 不猜接口或运行本机插件.
 
 ## Motion (connector)
 

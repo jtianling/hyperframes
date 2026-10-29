@@ -10,6 +10,8 @@
   ],
   "type": "module",
   "scripts": {
+    "test:monkeys-platform": "node --test tests/monkeys-platform-cli.test.mjs",
+    "check:monkeys-platform": "node scripts/sync-monkeys-platform.mjs --check",
     "dev": "bun run studio",
     "build": "bun run --filter '@hyperframes/{parsers,lint,studio-server}' build && bun run --filter @hyperframes/core build && bun run --filter '@hyperframes/{engine,producer,player,studio,shader-transitions,aws-lambda,gcp-cloud-run,sdk,inspector}' build && bun run --filter @hyperframes/cli build && bun run --filter @hyperframes/sdk-playground build",
     "build:producer": "bun run --filter @hyperframes/producer build",

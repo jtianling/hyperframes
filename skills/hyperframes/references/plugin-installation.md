@@ -1,43 +1,7 @@
-# Running from an installed plugin
+# 平台固定版本与维护
 
-Check the directory two levels above the loaded `SKILL.md` for `plugin.json`,
-`.claude-plugin/plugin.json`, `.codex-plugin/plugin.json`, or
-`.cursor-plugin/plugin.json` identifying `hyperframes`, or a Gemini extension manifest.
-That directory is `<PLUGIN_ROOT>`. If none exists, this is a standalone skill;
-follow the normal installation and freshness instructions.
+本 fork 在 monkeys 由平台冻结和加载, 先读 [平台接入](platform.md).  不在视频任务中运行 skills install/update/check, npx skills, plugin-cli.mjs 的 npm bootstrap 或自动 CLI 升级, 不因原版 stderr 提示就覆盖本 fork.
 
-For a plugin installation, these rules replace the standalone update commands
-in every skill and reference:
+使用当前 skill 的 scripts/platform-cli.mjs 调用已安装引擎.  缺少核心 skill, 浏览器或引擎时报告具体缺口, 由平台维护者提供固定版本.  插件管理器和本机桌面 app 不属于本平台任务环境.
 
-- Do not run `hyperframes skills update`, `skills check`, or `npx skills add`.
-  The agent's plugin manager owns installation and updates. Read the skill at
-  `<PLUGIN_ROOT>/skills/<name>/SKILL.md`; report a missing bundled skill instead
-  of downloading a different release. Resolve all skill references inside this
-  bundle, even if a standalone copy is also installed. Claude exposes the router
-  as `/hyperframes:hyperframes`; other clients may expose `/hyperframes`.
-- Replace `npx hyperframes` (or bare `hyperframes`) in command examples with:
-
-  ```bash
-  node "<PLUGIN_ROOT>/skills/hyperframes/scripts/plugin-cli.mjs" <command> <args...>
-  ```
-
-  Run in the user's project directory, never in the plugin directory. The launcher
-  selects the manifest's CLI version and disables automatic standalone skill
-  installation, including during `init`. The first call may download that exact
-  CLI version through npm. A download failure is an error, not permission to use
-  latest. Existing project dependency files and lockfiles must not be overwritten
-  to match the plugin; surface a runtime incompatibility before changing them.
-
-- For bundled Node helpers, use the same
-  launcher with `--script <absolute-script-path> <args...>`. This passes the
-  release version to their dependency loader. External providers, registry
-  downloads, and existing project dependencies have their own versions; a plugin
-  version alone does not freeze those inputs.
-- Treat the plugin directory as read-only. Put outputs and temporary work in the
-  project or a temporary directory. Pass this plugin root and launcher convention
-  to any delegated agent so it does not fall back to global skills.
-
-To get newer skills, use the client's plugin update flow and reload the session.
-Do not silently update an installed plugin during a video task.
-
-The launcher suppresses CLI update notices as well as standalone skill refreshes, including when running an older CLI with a stale notice cache. It passes the release as `HYPERFRAMES_PLUGIN_VERSION` for plugin-aware helpers and as `HYPERFRAMES_SKILL_PKG_VERSION` for the existing helper-package bootstrap. Our release process versions those packages together.
+用户明确要求维护 fork 或升级依赖时, 在授权的本地仓库由维护者处理, 核对版本兼容和代表产物后再更新冻结来源.  普通视频请求不授权发布项目, 上传源码或改生产配置.

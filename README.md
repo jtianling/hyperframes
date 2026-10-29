@@ -1,4 +1,6 @@
 <p align="center">
+
+本 fork 的 monkeys 平台适配见 [接入说明](docs/monkeys-platform.md).  平台任务使用本地 CLI wrapper 和托管媒体工具, 不安装原版 skill, 不自动升级或调用供应商生成 API.  原版源码与贡献者说明继续保留, 不代表平台环境已安装全部工具.
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/logo/dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="docs/logo/light.svg">
@@ -103,7 +105,7 @@ This writes `dist/hyperframes-plugin.zip` with a `hyperframes/` root folder and 
 | `/hyperframes`          | **Read first** for any request to make, edit, animate or render a video, motion graphic, captions or overlays with HyperFrames (HTML rendered to video). Holds the render contract and the work loop, and points to the references for format, motion, look, captions, whole films and storyboards. |
 | `/hyperframes-cli`      | The HyperFrames CLI by job — scaffold, check, look at frames, edit the timeline, preview, render locally or in the cloud, publish, project history — plus reading its JSON and recovering from build or render failures.                                                                            |
 | `/hyperframes-registry` | About 450 ready-made blocks and components installed as editable source — transitions, overlays, titles, kinetic type, captions, charts, maps, 3D, camera moves. Use before hand-building any named visual; also for `hyperframes add` and `catalog`.                                               |
-| `/media-use`            | Get or make any media for a video — music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks — with HeyGen or free local tools, and mix placed audio. Also for footage that looks dark, flat or dull.                       |
+| `/media-use`            | Get or make any media for a video — music, sound effects, images, icons, logos, voiceover, avatar and generated video, transcripts, cutouts, colour grades and looks — with monkeys managed media tools and local mixing. Also for footage that looks dark, flat or dull.                       |
 
 ### On demand
 

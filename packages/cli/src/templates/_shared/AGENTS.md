@@ -1,5 +1,7 @@
 # HyperFrames Composition Project
 
+本 fork 在 monkeys 运行时, 优先遵循已加载 skill 的 references/platform.md 并使用其本地 platform-cli.mjs.  媒体生成使用平台托管工具, 不安装原版 skill, 不自动升级, 发送反馈或调用供应商生成 API.  下列原版独立安装和桌面工作流不作为 monkeys 的执行入口.
+
 This folder is a [HyperFrames](https://hyperframes.heygen.com) video: HTML, CSS and seekable
 animations (GSAP by default) that the `hyperframes` CLI previews in the browser and renders to
 MP4.
@@ -13,7 +15,7 @@ MP4.
 - `/hyperframes` — read first for any request to make, edit, animate or render a video, motion graphic, captions or overlays. Holds the render contract and the work loop.
 - `/hyperframes-cli` — the CLI by job: scaffold, check, look at frames, edit the timeline, preview, render, publish, project history.
 - `/hyperframes-registry` — ready-made blocks and components installed as editable source. Search it before hand-building any named visual.
-- `/media-use` — get or make any media (music, sound effects, images, voiceover, avatar and generated video, transcripts, cutouts, colour grades) and mix placed audio.
+- `/media-use` — Generate and integrate HyperFrames video media with monkeys managed image, video, speech and music tools, and apply local audio mixing and media treatments.
 - `/figma` — bring a Figma design, frame, logo or brand into a video.
 - `/slideshow` — a presentation or pitch deck. Output is a navigable deck, not a rendered MP4.
 - `/remotion-to-hyperframes` — bring existing video code or footage into HyperFrames (Remotion first; also Motion Canvas, Lottie, Three.js, canvas, or renders from other tools) and verify it frame by frame against the original.

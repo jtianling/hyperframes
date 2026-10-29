@@ -3,15 +3,15 @@ name: hyperframes
 description: Read first to make, edit, animate or render any video with HyperFrames (HTML rendered to video), including launch films, explainers, music videos, charts, maps, vertical clips, title cards, captions and overlays. Holds the render contract, the work loop and what each kind of video needs.
 ---
 
-**Plugin installs:** Before setup or freshness commands, follow [plugin execution rules](references/plugin-installation.md) when this skill is inside a HyperFrames plugin.
+先读 [monkeys 平台接入](references/platform.md), 使用本 skill 的 platform-cli.mjs 和平台媒体工具.  本文优先于原版安装, 云服务和交付流程.
 
 # HyperFrames
 
-HyperFrames renders HTML to video by seeking a paused timeline frame by frame, so every render is identical; the person edits the same files in the Studio preview. Use it unless another framework or a plain browser recording is asked for. Run the CLI as `npx hyperframes <command>` (`/hyperframes-cli`); at the start of a new video, `npx hyperframes usage --json` reports the person's remaining plan usage (say "unknown" when it is).
+HyperFrames renders HTML to video by seeking a paused timeline frame by frame, so every render is identical; the person edits the same files in the Studio preview. Use it unless another framework or a plain browser recording is asked for. 命令示例通过平台 CLI 入口执行, 不查询 HeyGen plan 或 usage.
 
-`index.html` is the root composition: it declares the video's variables and mounts one scene per sub-composition from `compositions/`. Media and fonts live in `assets/`. A new project: `npx hyperframes init <dir>`. A website as the subject: `npx hyperframes capture <url> --json`.
+`index.html` is the root composition: it declares the video's variables and mounts one scene per sub-composition from `compositions/`. Media and fonts live in `assets/`. A new project: `npx hyperframes init <dir>` (平台入口自动禁用 skill 安装和转录). A website as the subject: `npx hyperframes capture <url> --json`.
 
-Build what was asked: no voiceover or captions and no new aspect ratio unless the request or the source calls for them; a film over ~15 s that tells something gets music and sound on its visible actions unless the person asked for silence (`references/sound.md`). A new video is 1920×1080 at 30 fps. A question, a hold or a loose idea gets an answer or a proposal, not an edit. Before hand-writing a named effect, transition, caption style, chart or card, search the registry (`/hyperframes-registry`). Any media (a presenter or avatar, footage, voice, music): `/media-use`, which says when HeyGen is needed and what is free. Show real things from their source (the product's screens, the brand's logo, a real place's imagery); draw only what has none.
+Build what was asked: no voiceover or captions and no new aspect ratio unless the request or the source calls for them; a film over ~15 s that tells something gets music and sound on its visible actions unless the person asked for silence (`references/sound.md`). A new video is 1920×1080 at 30 fps. A question, a hold or a loose idea gets an answer or a proposal, not an edit. Before hand-writing a named effect, transition, caption style, chart or card, search the registry (`/hyperframes-registry`). Any media (a presenter or avatar, footage, voice, music): `/media-use`, which uses monkeys managed media tools. Show real things from their source (the product's screens, the brand's logo, a real place's imagery); draw only what has none.
 
 ## Contract
 
@@ -45,15 +45,11 @@ Studio edits the tags you write.
 - An existing project: `npx hyperframes timeline --json` shows what plays when; before any change, `npx hyperframes history --since mine --who <you>` shows what the person changed since your last turn: build on it (`/hyperframes-cli`).
 - A new film over ~15 s that tells something: its type's file (below), then `references/story.md`: three storylines that are three different films, in words only; the person picks unless they asked for the file or no stops. Then `SPEC.md` (`references/spec.md`): every adjective as a number, the defaults banned by name, the shots by frame.
 - After your last edit: `npx hyperframes check --json`; fix every error, weigh every warning. A film: `npx hyperframes snapshot --review` and `references/review.md`, ending in `REVIEW.md`. A small edit: snapshot what you changed (`--at`, `--range`, `--composition`) and look before you reply.
-- Render when the person approves the Studio preview, asks for the file or asks for no stops, after your check and review pass; otherwise stop at the preview and wait.
+- 用户要求制作或交付视频时, 检查与关键帧通过后 render.  只要预览或咨询时遵循对应范围, 不因 Studio 不可访问而把源码当成片.
 
-## The HyperFrames desktop app
+## 平台预览
 
-Call it "the HyperFrames desktop app", never "Studio"; offer it as the better way to keep editing, not the only one.
-
-- Before the delivery render of a new video, open the Studio preview, even in no-questions mode, and say they can edit there. If `preview` printed "Keep editing by chatting with Framey", add that the **Edit with Framey** button opens the app.
-- After the delivery render, pass on its Framey line in your own words: offer to run the `hyperframes open` it names or give its download link; else say nothing (autonomous: the delivery note).
-- When any command says to run `catch-up`, run `npx hyperframes catch-up [dir]` before your next change; what it lists is their work, not a new request.
+用户要成片时, 检查与关键帧通过后本地导出.  Studio 预览依赖平台真实端口代理, 缺代理时用 snapshot 检查, 不强制打开桌面 app 或停止导出.  只要求预览时不额外生成整片.
 
 ## What to read
 
@@ -71,4 +67,4 @@ Call it "the HyperFrames desktop app", never "Studio"; offer it as the better wa
 | Motion: eases, titles, cuts, punch-ins, speed, holds | `references/motion.md` |
 | Scenes, attributes, media, lint; GSAP, Lottie, 3D, canvas | `references/format.md`; `references/runtimes.md` |
 
-Decks: `/slideshow`. Remotion source: `/remotion-to-hyperframes`. Figma: `/figma`. Installing, refreshing or upgrading skills and the pinned CLI: `references/skill-lifecycle.md`.
+Decks: `/slideshow`. Remotion source: `/remotion-to-hyperframes`. Figma: `/figma`. 平台固定版本及维护边界: `references/skill-lifecycle.md`.

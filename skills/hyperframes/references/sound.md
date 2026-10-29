@@ -11,15 +11,13 @@ Sound is half of how a film feels, and the viewer notices a silent one before an
 
 ## 2. The clock
 
-- **Narrated**: the voice is the clock. Time each beat's start to its anchor word; text lands on the word that says it.
+- **Narrated**: the voice is the clock. 有真实词级时间时按词对齐, 否则使用实测片段时长做明确标注的分段同步.
 - **Music only**: the music is the clock. Land the payoff and the mark on its strong beats (`npx hyperframes beats`, then `film.md` "On music"); cuts follow the motion, not the drums.
 - Let the sound act out the story when it fits: the old way sits near silence, the music opens when the product appears; the music holds back until the payoff.
 
 ## 3. Music
 
-The person's own track first, as given. Else search the catalog (`/media-use`, `bgm`) with the film's feel and tempo, not its subject ("tense minimal pulse building to a bright drop, 120 bpm"), and read a few results before keeping one. Enter at the track's strongest bar, not a quiet intro; end on a bar line with a short fade under the end card.
-
-With no music source (no `heygen` sign-in and no local model), deliver silent and say so in one line with how to add one. Do not spend the run building an audio chain or writing music in code: nobody can hear whether it is good.
+用户已有配乐优先.  需要生成时调用平台 music_generate, 使用真实 schema, 完成后接入本地文件并实测时长.  工具不可用或失败时说明原因和可选方案, 不要求 HeyGen 登录或安装本地音乐模型, 不将无声结果冒充配乐完成.
 
 ## 4. Effects
 
@@ -33,11 +31,11 @@ Few and exact: every effect has a cause on screen, and too many read as a templa
 | pop               | a badge, chip or number landing                |
 | riser into impact | the payoff or the mark, once in the film       |
 
-- Place a clip so its peak lands one frame after its picture (light arrives before sound; a sound early feels wrong sooner than one late): `npx hyperframes audio <file> --json` reports where it hits, and most files peak after their start.
+- Place a clip so its peak lands one frame after its picture (light arrives before sound; a sound early feels wrong sooner than one late): FFmpeg/FFprobe 的本地音轨检查 reports where it hits, and most files peak after their start.
 - Each hit sits 3-6 dB over the bed; a bed with most of its energy under 150 Hz plays as nothing on a phone speaker.
 - Rotate two or three takes of a repeated sound; the same whoosh on every cut is the most common tell.
 - Over strong music, a typing-heavy film can drop the clicks and keys. No synthesised tones, chimes or dings.
 
 ## 5. Levels
 
-Music under a voice sits around 0.14 volume; nothing clips (AI audio often does). Keep each file's true peak at −1 dBTP or lower and the mix around −16 to −14 LUFS for social, `npx hyperframes normalize-audio` to match levels (`/media-use`). Check the rendered file with `npx hyperframes audio <video> --json`: sound present, hits where the picture hits, loudness in range. Say in the delivery note that it was measured, not heard (`review.md` §4).
+Music under a voice sits around 0.14 volume; nothing clips (AI audio often does). Keep each file's true peak at −1 dBTP or lower and the mix around −16 to −14 LUFS for social, `npx hyperframes normalize-audio` to match levels (`/media-use`). Check the rendered file with FFmpeg/FFprobe 的本地音轨检查: sound present, hits where the picture hits, loudness in range. Say in the delivery note that it was measured, not heard (`review.md` §4).
